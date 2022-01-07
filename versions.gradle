@@ -1,0 +1,18 @@
+ext {
+    //App
+    compile_sdk_version = 31
+    min_sdk_version = 23
+    target_sdk_version = 31
+
+    //Tools
+    ktlint_version = '0.36.0'
+
+    //Libraries
+    retrofit_version = '2.6.1'
+    picasso_version = '2.71828'
+    room_version = '2.3.0'
+    coroutinesVersion = '1.4.2'
+    coroutinesAndroidVersion = '1.5.0'
+
+    //Compose
+}

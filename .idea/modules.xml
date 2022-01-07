@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Superhero_Squad_Maker.iml" filepath="$PROJECT_DIR$/.idea/modules/Superhero_Squad_Maker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Superhero_Squad_Maker.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Superhero_Squad_Maker.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/superheroes-api/Superhero_Squad_Maker.superheroes-api.iml" filepath="$PROJECT_DIR$/.idea/modules/superheroes-api/Superhero_Squad_Maker.superheroes-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/superheroes-data/Superhero_Squad_Maker.superheroes-data.iml" filepath="$PROJECT_DIR$/.idea/modules/superheroes-data/Superhero_Squad_Maker.superheroes-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/superheroes-database/Superhero_Squad_Maker.superheroes-database.iml" filepath="$PROJECT_DIR$/.idea/modules/superheroes-database/Superhero_Squad_Maker.superheroes-database.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/superheroes-domain/Superhero_Squad_Maker.superheroes-domain.iml" filepath="$PROJECT_DIR$/.idea/modules/superheroes-domain/Superhero_Squad_Maker.superheroes-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/superheroes-ui/Superhero_Squad_Maker.superheroes-ui.iml" filepath="$PROJECT_DIR$/.idea/modules/superheroes-ui/Superhero_Squad_Maker.superheroes-ui.iml" />
+    </modules>
+  </component>
+</project>

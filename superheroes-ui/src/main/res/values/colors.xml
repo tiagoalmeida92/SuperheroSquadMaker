@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="divider">#CEE1EB</color>
+    <color name="button_background_important">#CC423F</color>
+    <color name="button_background_default">#5F0AFF</color>
+
+</resources>

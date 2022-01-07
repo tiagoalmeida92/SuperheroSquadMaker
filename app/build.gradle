@@ -1,0 +1,99 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: '../versions.gradle'
+
+android {
+    compileSdk compile_sdk_version
+
+    defaultConfig {
+        applicationId "com.tiago.superherosquadmaker"
+        minSdk min_sdk_version
+        targetSdk target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "com.tiago.superherosquadmaker.CustomTestRunner"
+
+        def marvelApiPropertiesFile = rootProject.file("marvelapi.properties")
+        def marvelApiProperties = new Properties()
+
+        marvelApiProperties.load(new FileInputStream(marvelApiPropertiesFile))
+
+        buildConfigField "String", "MARVEL_SERVICE_BASE_URL", marvelApiProperties['url']
+        buildConfigField "String", "MARVEL_SERVICE_API_KEY", marvelApiProperties['key']
+        buildConfigField "String", "MARVEL_SERVICE_REFERER", marvelApiProperties['referer']
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    packagingOptions {
+        pickFirst 'META-INF/AL2.0'
+        pickFirst 'META-INF/LGPL2.1'
+    }
+
+    testOptions {
+        animationsDisabled = true
+    }
+}
+
+dependencies {
+    implementation project(path: ':superheroes-ui')
+    implementation project(path: ':superheroes-database')
+    implementation project(path: ':superheroes-domain')
+    implementation project(path: ':superheroes-data')
+    implementation project(path: ':superheroes-api')
+
+    //UI
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+
+    //Room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+
+
+    //Hilt
+    implementation 'com.google.dagger:hilt-android:2.38.1'
+    kapt 'com.google.dagger:hilt-compiler:2.38.1'
+
+    // For instrumentation tests
+    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.38.1'
+    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.38.1'
+
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:3.14.7"
+
+    androidTestImplementation "androidx.test:runner:1.4.0"
+    androidTestImplementation "androidx.test.ext:junit:1.1.3"
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.5")
+    // Needed for createComposeRule, but not createAndroidComposeRule:
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.0.5")
+
+
+}
+
+kapt {
+    correctErrorTypes true
+}
